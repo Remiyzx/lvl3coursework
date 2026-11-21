@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandarin Level III Coursework</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
         
         :root {
             --primary: #FF6B6B;
             --secondary: #4ECDC4;
             --accent: #FFE66D;
+            --purple: #845EC2;
             --dark: #2C3E50;
             --light: #F7F9F9;
         }
@@ -30,9 +31,9 @@
 
         /* Hero Banner */
         header {
-            background: linear-gradient(135deg, rgba(255,107,107,0.85), rgba(78,205,196,0.85)), url('https://images.unsplash.com/photo-1530103862676-de8892b12a15?auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(255,107,107,0.88), rgba(78,205,196,0.88)), url('https://images.unsplash.com/photo-1530103862676-de8892b12a15?auto=format&fit=crop&w=1920&q=80') center/cover;
             color: white;
-            padding: 100px 20px 85px;
+            padding: 100px 20px 90px;
             text-align: center;
         }
 
@@ -69,24 +70,66 @@
             background: white;
             border-radius: 20px;
             padding: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
         h2 {
             color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 25px;
+            font-size: 2rem;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
+        h3.sub-heading {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin: 28px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Today Class Banner */
+        .today-class-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+            border-left: 6px solid #f39c12;
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+
+        .today-class-box h3 {
+            color: #d35400;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .today-class-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .today-class-list li {
+            background: rgba(255, 255, 255, 0.75);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            color: #333;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
         /* Grid Layout */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 22px;
         }
 
         .goal-box {
@@ -105,34 +148,164 @@
         .goal-box h3 {
             color: var(--primary);
             margin-bottom: 10px;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
 
-        /* Rules Checklist */
-        .rules-list {
-            list-style: none;
-            background: #f0fbfa;
-            padding: 30px;
-            border-radius: 15px;
+        /* Workflow Stepper */
+        .workflow-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            background: #f4f8fb;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
         }
 
-        .rules-list li {
-            margin-bottom: 15px;
-            padding-left: 40px;
+        .workflow-step {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--secondary);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-step span.step-num {
+            background: var(--secondary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .workflow-arrow {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* Deadlines Grid */
+        .deadline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .deadline-card {
+            border-radius: 16px;
+            padding: 25px;
+            color: white;
             position: relative;
-            font-size: 1.1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
-        .rules-list li:last-child {
+        .deadline-video {
+            background: linear-gradient(135deg, #FF6B6B 0%, #ee5253 100%);
+        }
+
+        .deadline-script {
+            background: linear-gradient(135deg, #2e86de 0%, #48dbfb 100%);
+        }
+
+        .deadline-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.22);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .deadline-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .deadline-card p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        /* Important Notes (A-F) & Quick Rules */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .note-item {
+            background: #f0fbfa;
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            border: 1px solid #d7f3f0;
+        }
+
+        .note-letter {
+            background: var(--secondary);
+            color: white;
+            font-weight: 800;
+            min-width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            margin-top: 2px;
+        }
+
+        .note-text {
+            font-size: 1rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .scope-pill-box {
+            background: #f8f9fa;
+            border-radius: 14px;
+            padding: 20px 25px;
+            border-left: 5px solid var(--purple);
+        }
+
+        .scope-pill-box ul {
+            list-style: none;
+        }
+
+        .scope-pill-box li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .scope-pill-box li:last-child {
             margin-bottom: 0;
         }
 
-        .rules-list li::before {
+        .scope-pill-box li::before {
             content: '✨';
             position: absolute;
             left: 0;
-            top: 2px;
-            font-size: 1.2rem;
         }
 
         /* Scene Layout (Image + Text) */
@@ -258,10 +431,20 @@
 
     <div class="container">
         
-        <!-- Goals Section -->
+        <!-- Today Class & Goals Section -->
         <div class="card">
-            <h2>🎯 Today’s Master Plan</h2>
-            <p style="margin-bottom: 25px; color: #555; font-size: 1.05rem;">No teaching session today—laoshi will still arrive on time, so if your group members are all here, you can definitely start your group brainstorming right away!</p>
+            <h2>🎯 Today’s Class & Master Plan</h2>
+            <p style="margin-bottom: 20px; color: #555; font-size: 1.05rem;">No teaching session today—laoshi will still arrive on time, so if your group members are all here, you can definitely start your group brainstorming right away!</p>
+
+            <div class="today-class-box">
+                <h3>😉 Today Class Checklist</h3>
+                <ul class="today-class-list">
+                    <li>👥👥 <strong>Format:</strong> F2F – drama script writing in group</li>
+                    <li>🪑 <strong>Seating:</strong> Sit with your group in class</li>
+                    <li>💻 <strong>Materials:</strong> Bring your laptop, tablet, or printed template <strong>AND</strong> textbook or <em>KuaiLeXueHanYu</em></li>
+                    <li>⏱️ <strong>Timing:</strong> Can start anytime once your group is ready</li>
+                </ul>
+            </div>
             
             <div class="grid">
                 <div class="goal-box">
@@ -279,14 +462,81 @@
             </div>
         </div>
 
-        <!-- Rules Section -->
+        <!-- Workflow & Deadlines Section -->
         <div class="card">
-            <h2>📋 Quick Script Rules</h2>
-            <ul class="rules-list">
-                <li><strong>Structure:</strong> Include 3–4 scenes total.</li>
-                <li><strong>Length:</strong> Write at least 25 valid lines per student (3 or more Pinyin syllables per line).</li>
-                <li><strong>Scope:</strong> Use Kuaile Xue Hanyu and Textbook Lessons 1–11 only (maximum 4 highlighted external words allowed).</li>
-            </ul>
+            <h2>🗓️ Project Workflow & Deadlines</h2>
+            
+            <h3 class="sub-heading">🔄 Step-by-Step Workflow</h3>
+            <div class="workflow-container">
+                <div class="workflow-step"><span class="step-num">1</span> WhatsApp Group Formation</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">2</span> Brainstorm</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">3</span> Script Writing</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">4</span> Script Memorization</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">5</span> Video Recording</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">6</span> Video Editing</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">7</span> Video Upload</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">8</span> Script Submission</div>
+            </div>
+
+            <h3 class="sub-heading">⏰ Important Submission Deadlines</h3>
+            <div class="deadline-grid">
+                <div class="deadline-card deadline-video">
+                    <span class="deadline-badge">🎬 YouTube Video Submission</span>
+                    <h3>Week 14 Friday (16 Jan 2026)</h3>
+                    <p><strong>Time:</strong> Before 5:00 PM<br><strong>Platform:</strong> Microsoft Form</p>
+                </div>
+                <div class="deadline-card deadline-script">
+                    <span class="deadline-badge">📝 Hardcopy Script Submission</span>
+                    <h3>Study Week Monday / WCA 2 (4 Jan 2027)</h3>
+                    <p><strong>Mode:</strong> Submit hardcopy during F2F Exam</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notes & Script Rules Section -->
+        <div class="card">
+            <h2>📌 Some Important Notes & Script Rules</h2>
+            
+            <div class="notes-grid">
+                <div class="note-item">
+                    <div class="note-letter">A</div>
+                    <div class="note-text">Make sure the content matches the topic.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">B</div>
+                    <div class="note-text">The number of scenes must match the number of group members (e.g., a group of 3 must have at least 3 scenes).</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">C</div>
+                    <div class="note-text">Not every member has to appear in every scene, but each person must speak at least 25 sentences.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">D</div>
+                    <div class="note-text">Only a complete sentence (S + V + O or S + adv + A) counts as one sentence.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">E</div>
+                    <div class="note-text">Please highlight any extra vocabulary used.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">F</div>
+                    <div class="note-text">Write or type everything in the template and submit a hard copy at the end.</div>
+                </div>
+            </div>
+
+            <div class="scope-pill-box">
+                <ul>
+                    <li><strong>Syllable Requirement:</strong> Each valid sentence must contain 3 or more Pinyin syllables.</li>
+                    <li><strong>Syllabus Scope:</strong> Use <em>KuaiLeXueHanYu</em> and Textbook Lessons 1–11 only (maximum 4 highlighted extra words allowed).</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Storyline Outline Section -->
