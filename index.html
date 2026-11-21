@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandarin Level III Coursework</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2C3E50;
+            --light: #F7F9F9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Banner */
+        header {
+            background: linear-gradient(135deg, rgba(255,107,107,0.85), rgba(78,205,196,0.85)), url('https://images.unsplash.com/photo-1530103862676-de8892b12a15?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 100px 20px 85px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.3rem;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.65rem;
+            font-weight: 600;
+            opacity: 0.98;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 10px 28px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .goal-box {
+            background: #fff8f8;
+            border-left: 6px solid var(--primary);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,107,107,0.1);
+        }
+
+        .goal-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Rules Checklist */
+        .rules-list {
+            list-style: none;
+            background: #f0fbfa;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .rules-list li {
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .rules-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .rules-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2rem;
+        }
+
+        /* Scene Layout (Image + Text) */
+        .twist-banner {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(161, 140, 209, 0.3);
+        }
+
+        .scene-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .scene-card:hover {
+            border-color: var(--secondary);
+            transform: scale(1.01);
+        }
+
+        .scene-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .scene-content {
+            padding: 35px;
+            flex: 1;
+        }
+
+        .scene-number {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .scene-content ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+
+        .scene-content li {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark), #34495E);
+            color: white;
+            text-align: center;
+            padding: 50px 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            justify-content: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 230, 109, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.5);
+        }
+
+        @media (min-width: 900px) {
+            .scene-card {
+                flex-direction: row;
+            }
+            .scene-img {
+                width: 40%;
+                height: auto;
+            }
+            .scene-content {
+                width: 60%;
+            }
+            .scene-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎉 Mandarin Level III Coursework</h1>
+        <p>Shēngri jùhuì zhēn yǒu yìsi! (Birthday party is so much fun!)</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Goals Section -->
+        <div class="card">
+            <h2>🎯 Today’s Master Plan</h2>
+            <p style="margin-bottom: 25px; color: #555; font-size: 1.05rem;">No teaching session today—laoshi will still arrive on time, so if your group members are all here, you can definitely start your group brainstorming right away!</p>
+            
+            <div class="grid">
+                <div class="goal-box">
+                    <h3>💡 Goal 1: Storyline</h3>
+                    <p>Include Lesson 9 (date & birthday), Lesson 10 (price & shopping), and Lesson 11 (time & daily routine).</p>
+                </div>
+                <div class="goal-box">
+                    <h3>✍️ Goal 2: Script</h3>
+                    <p>Complete at least 1 scene today. Try to finish the whole script because laoshi only checks it in today's class, and no pre-submission reviews are allowed later.</p>
+                </div>
+                <div class="goal-box">
+                    <h3>🎬 Goal 3: Roles</h3>
+                    <p>Assign team roles for upcoming filming and video editing tasks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rules Section -->
+        <div class="card">
+            <h2>📋 Quick Script Rules</h2>
+            <ul class="rules-list">
+                <li><strong>Structure:</strong> Include 3–4 scenes total.</li>
+                <li><strong>Length:</strong> Write at least 25 valid lines per student (3 or more Pinyin syllables per line).</li>
+                <li><strong>Scope:</strong> Use Kuaile Xue Hanyu and Textbook Lessons 1–11 only (maximum 4 highlighted external words allowed).</li>
+            </ul>
+        </div>
+
+        <!-- Storyline Outline Section -->
+        <h2>🎬 Suggested Storyline Outline</h2>
+        
+        <div class="twist-banner">
+            🚀 Creative Plot Twist: Everyone pretends to forget the birthday person's special day because of their busy daily routines, then surprises them with a cake and gifts!
+        </div>
+
+        <!-- Scene 1 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students planning" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 01</div>
+                <h3>Planning the Party & Checking Schedules</h3>
+                <ul>
+                    <li>Friends talk about today's date and realize a friend's birthday is coming soon (Lesson 9).</li>
+                    <li>Decide to organize a fun birthday party (shēngri jùhuì).</li>
+                    <li>Compare daily routines—what time everyone wakes up, goes to class, and finishes class—to set the time for shopping and the party (Lesson 11).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 2 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=800&q=80" alt="Shopping at mall" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 02</div>
+                <h3>Shopping for Party Supplies & Gifts</h3>
+                <ul>
+                    <li>Go to the mall or shop to prepare for the party.</li>
+                    <li>Discuss what to buy, such as a cake (dàngāo), one jīn of fruit, CDs (guāngpán), or notebooks (běnzi).</li>
+                    <li>Ask the seller for prices (duōshao qián), talk about whether items are expensive (guì), and pay (Lesson 10).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 3 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=800&q=80" alt="Birthday Party Cake" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 03</div>
+                <h3>At the Birthday Party</h3>
+                <ul>
+                    <li>Welcome everyone to the party, including a new friend (briefly ask which country they are from and what they study to cover Lessons 7 & 8).</li>
+                    <li>Ask about the birthday person's birth date, exact birthday, and how old they are turning (Lesson 9).</li>
+                    <li>Present the gifts, sing, and talk about what food and drinks everyone is enjoying at the party (Lesson 9).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 4 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80" alt="Friends laughing at night" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 04</div>
+                <h3>Wrapping Up a Fun Night</h3>
+                <ul>
+                    <li>Check the time—it is getting late, and friends discuss what time they need to go home and sleep for tomorrow's routine (Lesson 11).</li>
+                    <li>End the scene by saying the birthday party was really fun (Shēngri jùhuì zhēn yǒu yìsi!), tying back to the main topic.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>📚 Additional Study Notes</h2>
+            <p>Remember to open this link on an electronic device to view it in high resolution and zoom in as needed!</p>
+            <a href="https://canva.link/dd2bpmvk2ihrl32" target="_blank" class="cta-button">View Useful Vocab & Grammar</a>
+        </div>
+
+    </div>
+</body>
+</html>
