@@ -29,6 +29,55 @@
             line-height: 1.6;
         }
 
+        /* Text Highlight Utilities */
+        .hl-red {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+        .hl-teal {
+            color: #0e9f96;
+            font-weight: 700;
+        }
+        .hl-purple {
+            color: #7d3c98;
+            font-weight: 700;
+        }
+        .hl-blue {
+            color: #2471a3;
+            font-weight: 700;
+        }
+        .pinyin-pill {
+            background: #fff3e0;
+            color: #d35400;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-style: italic;
+            display: inline-block;
+        }
+        .lesson-badge {
+            display: inline-block;
+            background: #e8f8f5;
+            color: #117a65;
+            border: 1px solid #a3e4d7;
+            padding: 1px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .lesson-badge-purple {
+            background: #f5eef8;
+            color: #6c3483;
+            border: 1px solid #d7bde2;
+        }
+        .lesson-badge-coral {
+            background: #fdedec;
+            color: #c0392b;
+            border: 1px solid #f5b7b1;
+        }
+
         /* Hero Banner */
         header {
             background: linear-gradient(135deg, rgba(255,107,107,0.88), rgba(78,205,196,0.88)), url('https://images.unsplash.com/photo-1530103862676-de8892b12a15?auto=format&fit=crop&w=1920&q=80') center/cover;
@@ -92,7 +141,7 @@
             gap: 8px;
         }
 
-        /* Today Class Banner (Fixed Alignment) */
+        /* Today Class Banner */
         .today-class-box {
             background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
             border-left: 6px solid #f39c12;
@@ -115,7 +164,7 @@
         }
 
         .today-class-list li {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             padding: 14px 18px;
             border-radius: 12px;
             color: #333;
@@ -137,7 +186,7 @@
             word-break: break-word;
         }
 
-        /* Grid Layout */
+        /* Goal Boxes */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -152,15 +201,38 @@
             transition: transform 0.3s ease;
         }
 
+        .goal-box.goal-teal {
+            background: #f2fbfa;
+            border-left-color: var(--secondary);
+        }
+
+        .goal-box.goal-purple {
+            background: #f8f4fc;
+            border-left-color: var(--purple);
+        }
+
         .goal-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,107,107,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
         }
 
         .goal-box h3 {
             color: var(--primary);
             margin-bottom: 10px;
             font-size: 1.25rem;
+        }
+
+        .goal-box.goal-teal h3 {
+            color: #0e9f96;
+        }
+
+        .goal-box.goal-purple h3 {
+            color: var(--purple);
+        }
+
+        .goal-box p {
+            color: #444;
+            font-size: 0.98rem;
         }
 
         /* Workflow Stepper */
@@ -309,6 +381,16 @@
             align-items: flex-start;
             gap: 14px;
             border: 1px solid #d7f3f0;
+            transition: transform 0.2s ease;
+        }
+
+        .note-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .note-item:nth-child(even) {
+            background: #f8f5fc;
+            border-color: #e8daf5;
         }
 
         .note-letter {
@@ -326,17 +408,21 @@
             flex-shrink: 0;
         }
 
+        .note-item:nth-child(even) .note-letter {
+            background: var(--purple);
+        }
+
         .note-text {
-            font-size: 1rem;
+            font-size: 0.98rem;
             color: #2c3e50;
-            font-weight: 500;
+            line-height: 1.55;
         }
 
         .scope-pill-box {
-            background: #f8f9fa;
+            background: #fff9f5;
             border-radius: 14px;
             padding: 20px 25px;
-            border-left: 5px solid var(--purple);
+            border-left: 5px solid var(--primary);
         }
 
         .scope-pill-box ul {
@@ -344,7 +430,7 @@
         }
 
         .scope-pill-box li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             padding-left: 28px;
             position: relative;
             font-size: 1rem;
@@ -362,15 +448,20 @@
 
         /* Scene Layout (Image + Text) */
         .twist-banner {
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            background: linear-gradient(135deg, #845EC2 0%, #D65DB1 100%);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 22px 26px;
+            border-radius: 16px;
             margin-bottom: 35px;
-            font-weight: 600;
+            font-weight: 500;
             text-align: center;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 15px rgba(161, 140, 209, 0.3);
+            font-size: 1.08rem;
+            box-shadow: 0 8px 20px rgba(132, 94, 194, 0.25);
+        }
+
+        .twist-banner strong {
+            color: #FFE66D;
+            font-weight: 800;
         }
 
         .scene-card {
@@ -404,23 +495,34 @@
         .scene-number {
             background: var(--secondary);
             color: white;
-            padding: 8px 20px;
+            padding: 7px 18px;
             border-radius: 30px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             letter-spacing: 1px;
+        }
+
+        .scene-card:nth-of-type(even) .scene-number {
+            background: var(--primary);
+        }
+
+        .scene-content h3 {
+            font-size: 1.45rem;
+            color: var(--dark);
+            margin-bottom: 8px;
         }
 
         .scene-content ul {
             padding-left: 20px;
-            margin-top: 15px;
+            margin-top: 14px;
         }
 
         .scene-content li {
-            margin-bottom: 12px;
-            color: #555;
+            margin-bottom: 14px;
+            color: #444;
+            line-height: 1.65;
         }
 
         /* CTA Section */
@@ -493,14 +595,14 @@
         <!-- Today Class & Goals Section -->
         <div class="card">
             <h2>🎯 Today’s Class & Master Plan</h2>
-            <p style="margin-bottom: 20px; color: #555; font-size: 1.05rem;">No teaching session today—laoshi will still arrive on time, so if your group members are all here, you can definitely start your group brainstorming right away!</p>
+            <p style="margin-bottom: 20px; color: #555; font-size: 1.05rem;"><span class="hl-red">No teaching session today</span>—laoshi will still arrive on time, so if your group members are all here, you can definitely <span class="hl-teal">start your group brainstorming right away</span>!</p>
 
             <div class="today-class-box">
                 <h3>😉 Today Class Checklist</h3>
                 <ul class="today-class-list">
                     <li>
                         <span class="check-icon">👥</span>
-                        <div class="check-content"><strong>Format:</strong> F2F – drama script writing in group</div>
+                        <div class="check-content"><strong>Format:</strong> <span class="hl-blue">F2F – drama script writing in group</span></div>
                     </li>
                     <li>
                         <span class="check-icon">🪑</span>
@@ -508,11 +610,11 @@
                     </li>
                     <li>
                         <span class="check-icon">💻</span>
-                        <div class="check-content"><strong>Materials:</strong> Bring your laptop, tablet, or printed template <strong>AND</strong> textbook or <em>KuaiLeXueHanYu</em></div>
+                        <div class="check-content"><strong>Materials:</strong> Bring your <span class="hl-purple">laptop, tablet, or printed template</span> <strong>AND</strong> <span class="hl-teal">textbook or <em>KuaiLeXueHanYu</em></span></div>
                     </li>
                     <li>
                         <span class="check-icon">⏱️</span>
-                        <div class="check-content"><strong>Timing:</strong> Can start anytime once your group is ready</div>
+                        <div class="check-content"><strong>Timing:</strong> Can start <span class="hl-red">anytime</span> once your group is ready</div>
                     </li>
                 </ul>
             </div>
@@ -520,15 +622,15 @@
             <div class="grid">
                 <div class="goal-box">
                     <h3>💡 Goal 1: Storyline</h3>
-                    <p>Include Lesson 9 (date & birthday), Lesson 10 (price & shopping), and Lesson 11 (time & daily routine).</p>
+                    <p>Must include <span class="hl-red">Lesson 9</span> (date &amp; birthday), <span class="hl-teal">Lesson 10</span> (price &amp; shopping), and <span class="hl-purple">Lesson 11</span> (time &amp; daily routine).</p>
                 </div>
-                <div class="goal-box">
+                <div class="goal-box goal-teal">
                     <h3>✍️ Goal 2: Script</h3>
-                    <p>Complete at least 1 scene today. Try to finish the whole script because laoshi only checks it in today's class, and no pre-submission reviews are allowed later.</p>
+                    <p>Complete <span class="hl-teal">at least 1 scene today</span>. Try to finish the whole script because <span class="hl-red">laoshi only checks it in today's class</span>, and <strong>no pre-submission reviews</strong> are allowed later.</p>
                 </div>
-                <div class="goal-box">
+                <div class="goal-box goal-purple">
                     <h3>🎬 Goal 3: Roles</h3>
-                    <p>Assign team roles for upcoming filming and video editing tasks.</p>
+                    <p>Assign clear <span class="hl-purple">team roles</span> for upcoming <strong>filming</strong> and <strong>video editing</strong> tasks.</p>
                 </div>
             </div>
         </div>
@@ -584,34 +686,34 @@
             <div class="notes-grid">
                 <div class="note-item">
                     <div class="note-letter">A</div>
-                    <div class="note-text">Make sure the content matches the topic.</div>
+                    <div class="note-text">Make sure the content <span class="hl-teal">matches the topic</span> (<em>Shēngri jùhuì zhēn yǒu yìsi!</em>).</div>
                 </div>
                 <div class="note-item">
                     <div class="note-letter">B</div>
-                    <div class="note-text">The number of scenes must match the number of group members (e.g., a group of 3 must have at least 3 scenes).</div>
+                    <div class="note-text">The <span class="hl-purple">number of scenes</span> must match the <span class="hl-purple">number of group members</span> (e.g., a group of 3 = <strong>at least 3 scenes</strong>).</div>
                 </div>
                 <div class="note-item">
                     <div class="note-letter">C</div>
-                    <div class="note-text">Not every member has to appear in every scene, but each person must speak at least 25 sentences.</div>
+                    <div class="note-text">Not every member has to appear in every scene, but each person must speak <span class="hl-red">at least 25 valid sentences</span>.</div>
                 </div>
                 <div class="note-item">
                     <div class="note-letter">D</div>
-                    <div class="note-text">Only a complete sentence (S + V + O or S + adv + A) counts as one sentence.</div>
+                    <div class="note-text">Only a <span class="hl-purple">complete sentence</span> (<strong>S + V + O</strong> or <strong>S + adv + A</strong>) counts as one sentence.</div>
                 </div>
                 <div class="note-item">
                     <div class="note-letter">E</div>
-                    <div class="note-text">Please highlight any extra vocabulary used.</div>
+                    <div class="note-text">Please <span class="hl-red">highlight any extra vocabulary</span> used in the script.</div>
                 </div>
                 <div class="note-item">
                     <div class="note-letter">F</div>
-                    <div class="note-text">Write or type everything in the template and submit a hard copy at the end.</div>
+                    <div class="note-text">Write or type everything <span class="hl-blue">in the official template</span> and submit a <span class="hl-purple">hard copy</span> at the end.</div>
                 </div>
             </div>
 
             <div class="scope-pill-box">
                 <ul>
-                    <li><strong>Syllable Requirement:</strong> Each valid sentence must contain 3 or more Pinyin syllables.</li>
-                    <li><strong>Syllabus Scope:</strong> Use <em>KuaiLeXueHanYu</em> and Textbook Lessons 1–11 only (maximum 4 highlighted extra words allowed).</li>
+                    <li><strong>Syllable Requirement:</strong> Each valid sentence must contain <span class="hl-red">3 or more Pinyin syllables</span>.</li>
+                    <li><strong>Syllabus Scope:</strong> Use <span class="hl-teal"><em>KuaiLeXueHanYu</em></span> and <span class="hl-teal">Textbook Lessons 1–11</span> only (<span class="hl-red">maximum 4 highlighted extra words</span> allowed).</li>
                 </ul>
             </div>
         </div>
@@ -620,7 +722,7 @@
         <h2>🎬 Suggested Storyline Outline</h2>
         
         <div class="twist-banner">
-            🚀 Creative Plot Twist: Everyone pretends to forget the birthday person's special day because of their busy daily routines, then surprises them with a cake and gifts!
+            🚀 <strong>Creative Plot Twist:</strong> Everyone pretends to forget the birthday person's special day because of their busy daily routines, then surprises them with a cake and gifts!
         </div>
 
         <!-- Scene 1 -->
@@ -630,9 +732,9 @@
                 <div class="scene-number">SCENE 01</div>
                 <h3>Planning the Party & Checking Schedules</h3>
                 <ul>
-                    <li>Friends talk about today's date and realize a friend's birthday is coming soon (Lesson 9).</li>
-                    <li>Decide to organize a fun birthday party (shēngri jùhuì).</li>
-                    <li>Compare daily routines—what time everyone wakes up, goes to class, and finishes class—to set the time for shopping and the party (Lesson 11).</li>
+                    <li>Friends talk about <span class="hl-blue">today's date</span> and realize a friend's <span class="hl-red">birthday is coming soon</span> <span class="lesson-badge lesson-badge-coral">Lesson 9</span></li>
+                    <li>Decide to organize a fun birthday party <span class="pinyin-pill">shēngri jùhuì</span>.</li>
+                    <li><span class="hl-purple">Compare daily routines</span>—what time everyone <strong>wakes up</strong>, <strong>goes to class</strong>, and <strong>finishes class</strong>—to set the time for shopping and the party <span class="lesson-badge lesson-badge-purple">Lesson 11</span></li>
                 </ul>
             </div>
         </div>
@@ -644,9 +746,9 @@
                 <div class="scene-number">SCENE 02</div>
                 <h3>Shopping for Party Supplies & Gifts</h3>
                 <ul>
-                    <li>Go to the mall or shop to prepare for the party.</li>
-                    <li>Discuss what to buy, such as a cake (dàngāo), one jīn of fruit, CDs (guāngpán), or notebooks (běnzi).</li>
-                    <li>Ask the seller for prices (duōshao qián), talk about whether items are expensive (guì), and pay (Lesson 10).</li>
+                    <li>Go to the <span class="hl-blue">mall or shop</span> to prepare for the party.</li>
+                    <li>Discuss <span class="hl-teal">what to buy</span>, such as a cake <span class="pinyin-pill">dàngāo</span>, <strong>one jīn of fruit</strong>, CDs <span class="pinyin-pill">guāngpán</span>, or notebooks <span class="pinyin-pill">běnzi</span>.</li>
+                    <li>Ask the seller for <span class="hl-red">prices</span> <span class="pinyin-pill">duōshao qián</span>, talk about whether items are <span class="hl-red">expensive</span> <span class="pinyin-pill">guì</span>, and pay <span class="lesson-badge">Lesson 10</span></li>
                 </ul>
             </div>
         </div>
@@ -658,9 +760,9 @@
                 <div class="scene-number">SCENE 03</div>
                 <h3>At the Birthday Party</h3>
                 <ul>
-                    <li>Welcome everyone to the party, including a new friend (briefly ask which country they are from and what they study to cover Lessons 7 & 8).</li>
-                    <li>Ask about the birthday person's birth date, exact birthday, and how old they are turning (Lesson 9).</li>
-                    <li>Present the gifts, sing, and talk about what food and drinks everyone is enjoying at the party (Lesson 9).</li>
+                    <li>Welcome everyone to the party, including a <span class="hl-teal">new friend</span> (briefly ask <strong>which country</strong> they are from and <strong>what they study</strong>) <span class="lesson-badge">Lessons 7 &amp; 8</span></li>
+                    <li>Ask about the birthday person's <span class="hl-red">birth date, exact birthday, and how old</span> they are turning <span class="lesson-badge lesson-badge-coral">Lesson 9</span></li>
+                    <li><span class="hl-blue">Present the gifts, sing</span>, and talk about what <strong>food and drinks</strong> everyone is enjoying at the party <span class="lesson-badge lesson-badge-coral">Lesson 9</span></li>
                 </ul>
             </div>
         </div>
@@ -672,8 +774,8 @@
                 <div class="scene-number">SCENE 04</div>
                 <h3>Wrapping Up a Fun Night</h3>
                 <ul>
-                    <li>Check the time—it is getting late, and friends discuss what time they need to go home and sleep for tomorrow's routine (Lesson 11).</li>
-                    <li>End the scene by saying the birthday party was really fun (Shēngri jùhuì zhēn yǒu yìsi!), tying back to the main topic.</li>
+                    <li><span class="hl-purple">Check the time</span>—it is getting late, and friends discuss what time they need to <strong>go home and sleep</strong> for tomorrow's routine <span class="lesson-badge lesson-badge-purple">Lesson 11</span></li>
+                    <li>End the scene by saying the birthday party was really fun <span class="pinyin-pill">Shēngri jùhuì zhēn yǒu yìsi!</span>, tying back to the main topic.</li>
                 </ul>
             </div>
         </div>
